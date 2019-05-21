@@ -1,0 +1,33 @@
+<?php
+
+
+session_start();
+$id=$_SESSION['id'];
+$gid=$_SESSION['gid'];
+if(isset($_GET['su1']))
+{
+
+	$cnt=$_GET['c'];
+	
+	$c=mysqli_connect("localhost","root","","clge");
+	echo "<form action='transport.php'>";
+	echo "<table border='1'>";
+		$r=mysqli_query($c,"select g_name from g_detail where gid='15986'");
+		echo "<tr><td colspan='2'><b>Enter the Guest $r Details</b></td></tr>";
+		echo "<tr><td>Pick Up Address</td><td><input type='text' name='p[]'></td></tr>";
+		echo "<tr><td>Drop down Address</td><td><input type='text' name='dd[]'></td></tr>";	
+		echo "<tr><td>Pick Up Time</td><td><input type='text' name='pu[]'></td></tr>";
+		echo "<tr><td>Guest Name</td><td><input type='text' name='gn[]>'></td></tr>";
+		echo "<tr><td>Guest Contact No </td><td><input type='text' name='gcn[]'></td></tr>";
+		echo "<tr><td>Guest Email ID </td><td><input type='text' name='ge[]'></td></tr>";
+		echo "<tr><td>Incharge Name </td><td><input type='text' name='in[]'></td></tr>";
+		echo "<tr><td>Incharge Contact no</td><td><input type='text' name='inc[]'></td></tr>";
+	
+	echo "<tr><td></td><td><input type='submit'></td></tr>";
+	echo "</table>";
+	echo "</form>";
+}
+			
+				
+
+?>
